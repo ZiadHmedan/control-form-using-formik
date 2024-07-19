@@ -1,23 +1,23 @@
 import styled, { DefaultTheme } from 'styled-components';
 import theme from './theme'; 
 interface TextProps {
-  bold?: boolean;
-  size?: "base" | "medium" | "large";
-  lineHeight?: "normal" | "tight";
-  letterSpacing?: "normal" | "tight";
+  $bold?: boolean;
+  $size?: "base" | "medium" | "large";
+  $lineHeight?: "normal" | "tight";
+  $letterSpacing?: "normal" | "tight";
   white?: boolean;
 }
 
- const getFontSize = (size: TextProps['size'], theme: DefaultTheme) => {
+ const getFontSize = (size: TextProps['$size'], theme: DefaultTheme) => {
   return theme.typography.sizes[size || 'base'];
 };
- const getLineHeight = (lineHeight: TextProps['lineHeight'], theme: DefaultTheme) => {
+ const getLineHeight = (lineHeight: TextProps['$lineHeight'], theme: DefaultTheme) => {
   return theme.typography.lineHeights[lineHeight || 'normal'];
 };
- const getLetterSpacing = (letterSpacing: TextProps['letterSpacing'], theme: DefaultTheme) => {
+ const getLetterSpacing = (letterSpacing: TextProps['$letterSpacing'], theme: DefaultTheme) => {
   return theme.typography.letterSpacings[letterSpacing || 'normal'];
 };
- const getFontWeight = (bold: TextProps['bold'], theme: DefaultTheme) => {
+ const getFontWeight = (bold: TextProps['$bold'], theme: DefaultTheme) => {
   return bold ? theme.typography.weights.bold : theme.typography.weights.normal;
 };
 
@@ -33,11 +33,11 @@ export const Container = styled.div`
   gap: 2.4rem;
 `;
 export const Typography = styled.p<TextProps>`
-  font-weight: ${props => getFontWeight(props.bold, theme)};
-  font-size: ${props => getFontSize(props.size, theme)};
-  line-height: ${props => getLineHeight(props.lineHeight,theme   )};
+  font-weight: ${props => getFontWeight(props.$bold, theme)};
+  font-size: ${props => getFontSize(props.$size, theme)};
+  line-height: ${props => getLineHeight(props.$lineHeight,theme   )};
   letter-spacing: ${props =>
-    getLetterSpacing(props.letterSpacing, theme)};
+    getLetterSpacing(props.$letterSpacing, theme)};
   color: ${props =>
     props.white ? theme.colors.white : theme.colors.darkGrey};
 `;

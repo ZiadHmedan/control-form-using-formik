@@ -1,4 +1,4 @@
-import RegisterForm from "./combonents/RegisterForm";
+import RegisterForm from "./components/RegisterForm";
 import { Container, Typography } from "./styles/utils";
 
 const App: React.FC = () => {
@@ -6,15 +6,15 @@ const App: React.FC = () => {
     <Container>
       <Typography
         as="h1"
-        bold
-        size="large"
-        lineHeight="tight"
-        letterSpacing="tight"
+        $bold
+        $size="large"
+        $lineHeight="tight"
+        $letterSpacing="tight"
       >
         Contact Us
       </Typography>
       
-      <RegisterForm />
+      <RegisterForm/>
     </Container>
   );
 };
