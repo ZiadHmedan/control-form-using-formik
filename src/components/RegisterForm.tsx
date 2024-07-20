@@ -1,6 +1,9 @@
-import {  Form, Formik } from "formik";
+import { Field, FieldProps, Form, Formik } from "formik";
 import * as Yup from "yup";
 import ControlField from "./ControlField";
+import { GridOneRow, Typography } from "../styles/utils";
+import { Button } from "../ui/Button";
+import { StyledCheckBox } from "../ui/StyledCheckBox";
 
 interface FormValues {
   firstName: string;
@@ -28,7 +31,6 @@ const validationSchema = Yup.object({
   consent: Yup.boolean().oneOf([true], "Consent is required"),
 });
 
-
 const onSubmit = (values: FormValues) => console.log(values);
 
 const RegisterForm: React.FC = () => {
@@ -38,20 +40,43 @@ const RegisterForm: React.FC = () => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      <Form>
-        {/* <Input/> */}
-        <ControlField label= "First Name" name="firstName"/>
-        <ControlField label= "Last Name" name="LastName"/>
-        <ControlField label= "Email Address" name="LastName" type="email" />
+      <Form className="form">
+        <GridOneRow>
+          <ControlField label="First Name" name="firstName" />
+          <ControlField label="Last Name" name="lastName" />
+        </GridOneRow>
+        <ControlField label="Email Address" name="email" type="email" />
+
         <ControlField
-          label="Query Type"
           name="queryType"
           type="radio"
+          label="Query Type"
           options={[
             { label: "General Enquiry", value: "general" },
             { label: "Support Request", value: "support" },
           ]}
-        />  
+        />
+
+        <ControlField label="Message" name="messsage" type="text" />
+        <div className="">
+          <Field name="consent">
+            {(props: FieldProps<string>) => {
+              const { field, meta } = props;
+              return (
+                <div className="flex">
+                  <StyledCheckBox type="checkbox" {...field} />
+                  {meta.touched && meta.error ? "error" : null}
+                  <Typography as="label" htmlFor="consent">
+                    I consent to being contacted by the team *
+                  </Typography>
+                </div>
+              );
+            }}
+          </Field>
+        </div>
+        <Button type="submit">
+          <Typography $bold $size="medium" $white>Submit</Typography>
+        </Button>
       </Form>
     </Formik>
   );

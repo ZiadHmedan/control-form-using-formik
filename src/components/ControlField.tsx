@@ -1,5 +1,8 @@
 import { Field, FieldProps } from "formik";
-import { Typography } from "../styles/utils";
+import { GridOneRow, Typography } from "../styles/utils";
+import { StyledInput } from "../ui/StyledInput";
+import { StyledRadio } from "../ui/StyledRadio";
+// import RadioInput from "./RadioInput";
 interface MyComponentProps {
   label: string;
   name: string;
@@ -9,35 +12,33 @@ interface MyComponentProps {
 const ControlField: React.FC<MyComponentProps> = ({
   name,
   label,
-  type,
+  type = "text",
   options,
 }) => {
-  if (!type) type = "text";
   return (
     <div>
-      <Typography as="label">{label}</Typography>
+      <Typography as="label"  htmlFor={name}>
+        {label}
+      </Typography>
       <Field name={name}>
         {(props: FieldProps<string>) => {
           const { field, meta } = props;
           return (
             <div>
-              {type === "radio" && options ? (
-                options.map(option => (
-                  <label key={option.value}>
-                    <input
-                      type="radio"
-                      id={`${name}-${option.value}`}
-                      {...field}
-                      value={option.value}
-                      checked={field.value === option.value}
-                    />
-                    {option.label}
-                  </label>
-                ))
+              {type === "radio" ? (
+                <GridOneRow>
+                  {options?.map(({ label, value }) => {
+                    return (
+                      <StyledRadio key={value}>
+                        <input type={type} id={value} {...field} />
+                        <Typography as="label" $size="medium" htmlFor={value}>{label}</Typography>
+                      </StyledRadio>
+                    );
+                  })}
+                </GridOneRow>
               ) : (
-                <input type={type} id={name} {...field} />
+                <StyledInput type={type} id={name} {...field} />
               )}
-
               {meta.touched && meta.error ? "error" : null}
             </div>
           );

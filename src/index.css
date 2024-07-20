@@ -108,5 +108,15 @@ body {
 }
 .flex{
   display:flex;
-  gap:1.6rem
+  gap:1.6rem;
+  /* align-items:baseline; */
+  /* align-items: center; */
+  /* align-content:start; */
+
+  /* background:red; */
+}
+.form{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
 }
