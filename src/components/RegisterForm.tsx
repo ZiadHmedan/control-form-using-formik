@@ -1,7 +1,7 @@
 import { Field, FieldProps, Form, Formik } from "formik";
 import * as Yup from "yup";
 import ControlField from "./ControlField";
-import { GridOneRow, Typography } from "../styles/utils";
+import { GridOneRow, StyledErrorMsg, Typography } from "../styles/utils";
 import { Button } from "../ui/Button";
 import { StyledCheckBox } from "../ui/StyledCheckBox";
 
@@ -23,12 +23,17 @@ const initialValues: FormValues = {
 };
 
 const validationSchema = Yup.object({
-  firstName: Yup.string().required("Required"),
-  lastName: Yup.string().required("Required"),
-  email: Yup.string().email("Invalid email address").required("Required"),
-  queryType: Yup.string().required("Required"),
-  message: Yup.string().required("Required"),
-  consent: Yup.boolean().oneOf([true], "Consent is required"),
+  firstName: Yup.string().required("This field is required"),
+  lastName: Yup.string().required("This field is required"),
+  email: Yup.string()
+    .email("Please enter a valid email address")
+    .required("This field is required"),
+  queryType: Yup.string().required("Please select a query type"),
+  message: Yup.string().required("This field is required"),
+  consent: Yup.boolean().oneOf(
+    [true],
+    "To submit this form, please consent to being contacted"
+  ),
 });
 
 const onSubmit = (values: FormValues) => console.log(values);
@@ -57,25 +62,36 @@ const RegisterForm: React.FC = () => {
           ]}
         />
 
-        <ControlField label="Message" name="messsage" type="text" />
+        <ControlField label="Message" name="message" type="text" />
         <div className="">
           <Field name="consent">
             {(props: FieldProps<string>) => {
               const { field, meta } = props;
               return (
-                <div className="flex">
-                  <StyledCheckBox type="checkbox" {...field} />
-                  {meta.touched && meta.error ? "error" : null}
-                  <Typography as="label" htmlFor="consent">
-                    I consent to being contacted by the team *
-                  </Typography>
+                <div>
+                  <div className="flex">
+                    <StyledCheckBox type="checkbox" {...field} />
+                    <Typography as="label" htmlFor="consent">
+                      I consent to being contacted by the team *
+                    </Typography>
+                  </div>
+
+                  {meta.touched && meta.error ? (
+                    <div className="">
+                      <Typography>
+                        <StyledErrorMsg>{meta.error}</StyledErrorMsg>
+                      </Typography>
+                    </div>
+                  ) : null}
                 </div>
               );
             }}
           </Field>
         </div>
         <Button type="submit">
-          <Typography $bold $size="medium" $white>Submit</Typography>
+          <Typography $bold $size="medium" $white>
+            Submit
+          </Typography>
         </Button>
       </Form>
     </Formik>

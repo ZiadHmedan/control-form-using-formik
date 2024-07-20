@@ -97,7 +97,7 @@ html {
 body {
   font-family: "Karla", sans-serif;
   background:#eee;
-  overflow:hidden; 
+  /* overflow:hidden;  */
   min-height: 100vh;
   align-content: center;
   /* height:100vh; */
@@ -109,11 +109,12 @@ body {
 .flex{
   display:flex;
   gap:1.6rem;
-  /* align-items:baseline; */
-  /* align-items: center; */
-  /* align-content:start; */
-
-  /* background:red; */
+ 
+}
+.flex-col{
+  display:flex;
+  flex-direction:column;
+  gap:8px
 }
 .form{
   display:flex;

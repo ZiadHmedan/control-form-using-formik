@@ -38,6 +38,9 @@ export const Container = styled.div`
   gap: 2.4rem;
 `;
 export const Typography = styled.p<TextProps>`
+display: block;
+/* background-color: red; */
+
   font-weight: ${props => getFontWeight(props.$bold, theme)};
   font-size: ${props => getFontSize(props.$size, theme)};
   line-height: ${props => getLineHeight(props.$lineHeight, theme)};
@@ -51,6 +54,9 @@ export const GridOneRow = styled.div`
   grid-template-columns: 1fr 1fr;
   column-gap: 1rem;
 `;
-export const StyledErrorMsg = styled.p``;
+export const StyledErrorMsg = styled.p`
+color: ${theme.colors.error};
+margin-top: 8px;
+`;
 
 export const StyledButton = styled.button``;
