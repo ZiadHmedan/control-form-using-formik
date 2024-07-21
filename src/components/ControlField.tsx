@@ -2,13 +2,14 @@ import { Field, FieldProps } from "formik";
 import { GridOneRow, StyledErrorMsg, Typography } from "../styles/utils";
 import { StyledInput } from "../ui/StyledInput";
 import { StyledRadio } from "../ui/StyledRadio";
-// import RadioInput from "./RadioInput";
+
 interface MyComponentProps {
   label: string;
   name: string;
   type?: string;
-  options?: { label: string; value: string }[];
+  options?: { key: string; val: string }[];
 }
+
 const ControlField: React.FC<MyComponentProps> = ({
   name,
   label,
@@ -17,7 +18,7 @@ const ControlField: React.FC<MyComponentProps> = ({
 }) => {
   return (
     <div className="flex-col">
-      <Typography as="label"  htmlFor={name} className="">
+      <Typography as="label" htmlFor={name} className="">
         {label}
       </Typography>
       <Field name={name}>
@@ -27,21 +28,30 @@ const ControlField: React.FC<MyComponentProps> = ({
             <div>
               {type === "radio" ? (
                 <GridOneRow>
-                  {options?.map(({ label, value }) => {
+                  {options?.map(({ key, val }) => {
                     return (
-                      <StyledRadio key={value}>
-                        <input type={type} id={value} {...field}  />
-                        <Typography as="label" $size="medium" htmlFor={value}>{label}</Typography>
-
-                      </StyledRadio>
-                      
+                        <StyledRadio key={val}>
+                          <input type={type} id={val} {...field}  value={val} />
+                          <Typography as="label" $size="medium" htmlFor={val}>
+                            {key}
+                          </Typography>
+                        </StyledRadio>
                     );
                   })}
                 </GridOneRow>
               ) : (
-                <StyledInput $high={name === 'message'} type={type} id={name} {...field} />
+                <StyledInput
+                  $high={name === "message"}
+                  type={type}
+                  id={name}
+                  {...field}
+                />
               )}
-              {meta.touched && meta.error ? <Typography><StyledErrorMsg>{meta.error}</StyledErrorMsg></Typography> : null}
+              {meta.touched && meta.error ? (
+                <Typography>
+                  <StyledErrorMsg>{meta.error}</StyledErrorMsg>
+                </Typography>
+              ) : null}
             </div>
           );
         }}

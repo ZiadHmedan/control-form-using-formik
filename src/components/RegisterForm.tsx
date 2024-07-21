@@ -17,7 +17,7 @@ const initialValues: FormValues = {
   firstName: "",
   lastName: "",
   email: "",
-  queryType: "general",
+  queryType: "general" || "support",
   message: "",
   consent: false,
 };
@@ -53,12 +53,12 @@ const RegisterForm: React.FC = () => {
         <ControlField label="Email Address" name="email" type="email" />
 
         <ControlField
-          name="queryType"
           type="radio"
           label="Query Type"
+          name="queryType"
           options={[
-            { label: "General Enquiry", value: "general" },
-            { label: "Support Request", value: "support" },
+            { key: "General Enquiry", val: "general" },
+            { key: "Support Request", val: "support" },
           ]}
         />
 

@@ -37,7 +37,7 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 2.4rem;
 `;
-export const Typography = styled.p<TextProps>`
+export const Typography = styled.div<TextProps>`
 display: block;
 /* background-color: red; */
 
@@ -54,7 +54,7 @@ export const GridOneRow = styled.div`
   grid-template-columns: 1fr 1fr;
   column-gap: 1rem;
 `;
-export const StyledErrorMsg = styled.p`
+export const StyledErrorMsg = styled.div`
 color: ${theme.colors.error};
 margin-top: 8px;
 `;
