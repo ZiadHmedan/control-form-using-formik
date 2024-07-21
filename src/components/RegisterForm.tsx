@@ -17,7 +17,7 @@ const initialValues: FormValues = {
   firstName: "",
   lastName: "",
   email: "",
-  queryType: "general" || "support",
+  queryType: "",
   message: "",
   consent: false,
 };

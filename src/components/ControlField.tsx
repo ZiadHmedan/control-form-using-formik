@@ -31,7 +31,7 @@ const ControlField: React.FC<MyComponentProps> = ({
                   {options?.map(({ key, val }) => {
                     return (
                         <StyledRadio key={val}>
-                          <input type={type} id={val} {...field}  value={val} />
+                          <input type={type} id={val} {...field}  value={val} checked={field.value === val}/>
                           <Typography as="label" $size="medium" htmlFor={val}>
                             {key}
                           </Typography>
