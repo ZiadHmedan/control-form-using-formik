@@ -24,7 +24,7 @@ const Radio: FC<MyProps> = ({ name, label, options, type }) => {
           {({ field }: FieldProps<string>) => (
             <>
               {options?.map(({ key, val }) => (
-                <StyledRadio key={val} $active={field.checked}>
+                <StyledRadio key={val} $active={!!field.checked}>
                   <input
                     type={type}
                     id={val}
