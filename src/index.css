@@ -3,9 +3,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin:0;
-  padding:0;
-
+  margin: 0;
+  padding: 0;
 }
 
 /* Prevent font size inflation */
@@ -96,28 +95,18 @@ html {
 }
 body {
   font-family: "Karla", sans-serif;
-  background:#eee;
-  /* overflow:hidden;  */
   min-height: 100vh;
+  width: 100vw;
+  background: #eee;
+
   align-content: center;
-  /* height:100vh; */
-}
-.center{
-  min-height: 100vh;
-  align-content: center;
-}
-.flex{
-  display:flex;
-  gap:1.6rem;
- 
-}
-.flex-col{
-  display:flex;
-  flex-direction:column;
-  gap:8px
 }
 .form{
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.flex-8{
   display:flex;
-  flex-direction:column;
-  gap:24px;
+  gap:8px;
 }
