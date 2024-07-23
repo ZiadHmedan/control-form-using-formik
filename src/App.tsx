@@ -3,7 +3,7 @@ import RegisterForm from "./components/RegisterForm";
 import { Container } from "./ui/Container";
 import { SuccessMessage } from "./ui/SuccessMessage";
 import { Typography } from "./ui/Typography";
-import vector from "./Ui/Vector.svg";
+import vector from "./ui/Vector.svg";
 function App() {
   const [modal, setModal] = useState(false);
 
