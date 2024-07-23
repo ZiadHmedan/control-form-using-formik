@@ -1,15 +1,11 @@
-import { StyledTextError } from '../Ui/StyledTextError';
+import { StyledTextError } from "../ui/StyledTextError";
 
 interface TextErrorProps {
   children: string;
 }
 
 const TextError: React.FC<TextErrorProps> = ({ children }) => {
-  return (
-    <StyledTextError>
-      {children}
-    </StyledTextError>
-  );
+  return <StyledTextError>{children}</StyledTextError>;
 };
 
 export default TextError;

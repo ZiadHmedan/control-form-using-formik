@@ -1,8 +1,8 @@
 import { useState } from "react";
 import RegisterForm from "./components/RegisterForm";
-import { Container } from "./Ui/Container";
-import { SuccessMessage } from "./Ui/SuccessMessage";
-import { Typography } from "./Ui/Typography";
+import { Container } from "./ui/Container";
+import { SuccessMessage } from "./ui/SuccessMessage";
+import { Typography } from "./ui/Typography";
 import vector from "./Ui/Vector.svg";
 function App() {
   const [modal, setModal] = useState(false);

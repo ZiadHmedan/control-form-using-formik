@@ -1,8 +1,8 @@
 import { ErrorMessage, Field, FieldProps } from "formik";
-import { Typography } from "../Ui/Typography";
+import { Typography } from "../ui/Typography";
 import theme from "../theme";
 import TextError from "./TextError";
-import { StyledCheckBox } from "../Ui/StyledCheckBox";
+import { StyledCheckBox } from "../ui/StyledCheckBox";
 
 interface InputProps {
   label: string;

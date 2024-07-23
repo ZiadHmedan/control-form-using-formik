@@ -1,24 +1,23 @@
 import { ErrorMessage, Field, FieldProps } from "formik";
-import { StyledRadio } from "../Ui/StyledRadio";
-import { Typography } from "../Ui/Typography";
+import { StyledRadio } from "../ui/StyledRadio";
+import { Typography } from "../ui/Typography";
 import TextError from "./TextError";
 import { FC } from "react";
-import { GridOneRow } from "../Ui/GridOneRow";
+import { GridOneRow } from "../ui/GridOneRow";
 import theme from "../theme";
 
 interface MyProps {
   label: string;
   name: string;
-  type:string;
+  type: string;
   options?: { key: string; val: string }[];
 }
 
 const Radio: FC<MyProps> = ({ name, label, options, type }) => {
   return (
     <div>
-      
       <Typography as="label" htmlFor={name}>
-        {label} <span style={{color:theme.colors.darkGreen}}>*</span>
+        {label} <span style={{ color: theme.colors.darkGreen }}>*</span>
       </Typography>
       <GridOneRow $styleFor={type}>
         <Field name={name}>
