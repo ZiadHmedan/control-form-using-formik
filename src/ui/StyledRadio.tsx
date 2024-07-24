@@ -15,7 +15,7 @@ export const StyledRadio = styled.div<Prop>`
   align-items: center;
   gap: 12px;
   transition: all 0.3s ease-in;
-
+  margin-bottom: 8px;
   &:hover {
     border: 2px solid ${theme.colors.darkGreen};
   }

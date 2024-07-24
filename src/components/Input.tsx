@@ -16,7 +16,7 @@ const Input: React.FC<InputProps> = ({ label, name, type }) => {
       <Typography as="label" htmlFor={name}>
         {label} <span style={{ color: theme.colors.darkGreen }}>*</span>
       </Typography>
-      <Field name={name}>
+      <Field id={name} name={name}>
         {(props: FieldProps<string>) => {
           const { field, meta } = props;
           let err = false;
@@ -25,6 +25,7 @@ const Input: React.FC<InputProps> = ({ label, name, type }) => {
           return (
             <StyledInput
               as={type === "textarea" ? "textarea" : "input"}
+              id={name} 
               type={type}
               {...field}
               $unValid={err}
