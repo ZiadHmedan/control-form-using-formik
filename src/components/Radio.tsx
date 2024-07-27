@@ -16,7 +16,7 @@ interface MyProps {
 const Radio: FC<MyProps> = ({ name, label, options, type }) => {
   return (
     <div>
-      <Typography as="label" htmlFor={name}>
+      <Typography as="label">
         {label} <span style={{ color: theme.colors.darkGreen }}>*</span>
       </Typography>
       <GridOneRow $styleFor={type}>
