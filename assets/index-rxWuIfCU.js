@@ -95,7 +95,7 @@ margin-top: 8px;
     ${({$unValid:e})=>e?K.colors.error:K.colors.lightGrey};
   font-size: ${K.typography.sizes.medium};
   color: ${({$unValid:e})=>e?K.colors.error:K.colors.darkGrey};
-  padding: ${({type:e})=>e==="textarea"?"12px":"0"} 24px;
+  padding: ${({id:e})=>e==="message"?"12px":"0"} 24px;
 
   border-radius: 2px;
   width: 100%;
@@ -107,7 +107,7 @@ margin-top: 8px;
     outline: none;
     border: 2px solid ${K.colors.darkGreen};
   }
-`,FE=({label:e,name:t,type:n})=>I.jsxs("div",{children:[I.jsxs(vn,{as:"label",htmlFor:t,children:[e," ",I.jsx("span",{style:{color:K.colors.darkGreen},children:"*"})]}),I.jsx(nc,{id:t,name:t,children:r=>{const{field:i,meta:o}=r;let l=!1;return o.error&&o.touched&&(l=!0),I.jsx(OE,{as:n==="textarea"?"textarea":"input",id:t,type:n,...i,$unValid:l})}}),I.jsx(rc,{name:t,component:mc})]}),PE=jt.div`
+`,FE=({label:e,name:t,type:n})=>I.jsxs("div",{children:[I.jsxs(vn,{as:"label",htmlFor:t,children:[e," ",I.jsx("span",{style:{color:K.colors.darkGreen},children:"*"})]}),I.jsx(nc,{id:t,name:t,children:r=>{const{field:i,meta:o}=r;let l=!1;return o.error&&o.touched&&(l=!0),I.jsx(OE,{as:n==="textarea"?"textarea":"input",id:t,...n!=="textarea"&&{type:n},...i,$unValid:l})}}),I.jsx(rc,{name:t,component:mc})]}),PE=jt.div`
   border: 2px solid ${K.colors.lightGrey};
   border-radius: 10px;
   width: 100%;
@@ -156,7 +156,7 @@ margin-top: 8px;
     grid-template-columns: 1fr;
     row-gap: ${({$styleFor:e})=>e==="radio"?"16px":"24px"};
   }
-`,jE=({name:e,label:t,options:n,type:r})=>I.jsxs("div",{children:[I.jsxs(vn,{as:"label",htmlFor:e,children:[t," ",I.jsx("span",{style:{color:K.colors.darkGreen},children:"*"})]}),I.jsx(lm,{$styleFor:r,children:I.jsx(nc,{name:e,children:({field:i})=>I.jsx(I.Fragment,{children:n==null?void 0:n.map(({key:o,val:l})=>I.jsxs(PE,{$active:!!i.checked,children:[I.jsx("input",{type:r,id:l,...i,value:l,checked:i.value===l}),I.jsx(vn,{as:"label",htmlFor:l,children:o})]},l))})})}),I.jsx(rc,{name:e,component:mc})]}),ir=({control:e,...t})=>{switch(e){case"input":return I.jsx(FE,{...t});case"radio":return I.jsx(jE,{...t});case"checkbox":return I.jsx($E,{...t});default:return null}},AE=jt.button`
+`,jE=({name:e,label:t,options:n,type:r})=>I.jsxs("div",{children:[I.jsxs(vn,{as:"label",htmlFor:e,children:[t," ",I.jsx("span",{style:{color:K.colors.darkGreen},children:"*"})]}),I.jsx(lm,{$styleFor:r,children:I.jsx(nc,{name:e,id:e,children:({field:i})=>I.jsx(I.Fragment,{children:n==null?void 0:n.map(({key:o,val:l})=>I.jsxs(PE,{$active:!!i.checked,children:[I.jsx("input",{type:r,id:l,...i,value:l,checked:i.value===l}),I.jsx(vn,{as:"label",htmlFor:l,children:o})]},l))})})}),I.jsx(rc,{name:e,component:mc})]}),ir=({control:e,...t})=>{switch(e){case"input":return I.jsx(FE,{...t});case"radio":return I.jsx(jE,{...t});case"checkbox":return I.jsx($E,{...t});default:return null}},AE=jt.button`
   width: 100%;
   background:${K.colors.darkGreen};
   
@@ -169,7 +169,7 @@ margin-top: 8px;
   &:hover, &:focus {
       background:${K.colors.darkGrey};
   }
-`,NE={firstName:"",lastName:"",email:"",queryType:"",message:"",consent:!1},IE=I0({firstName:or().required("This field is required"),lastName:or().required("This field is required"),email:or().email("Please enter a valid email address").required("This field is required"),queryType:or().required("Please select a query type"),message:or().required("This field is required"),consent:P0().oneOf([!0],"To submit this form, please consent to being contacted")}),RE=[{key:"General Enquiry",val:"general"},{key:"Support Request",val:"support"}],zE=({handleModal:e})=>{const t=C.useCallback((o,l)=>{console.log(o),e(u=>!u),l.setSubmitting(!1)},[e]),n=C.useMemo(()=>NE,[]),r=C.useMemo(()=>IE,[]),i=C.useMemo(()=>RE,[]);return I.jsx(d2,{initialValues:n,validationSchema:r,onSubmit:t,children:({isSubmitting:o,isValid:l})=>I.jsxs(E0,{className:"form",children:[I.jsxs(lm,{$styleFor:"input",children:[I.jsx(ir,{control:"input",type:"text",name:"firstName",label:"First Name"}),I.jsx(ir,{control:"input",type:"text",name:"lastName",label:"Last Name"})]}),I.jsx(ir,{control:"input",type:"email",name:"email",label:"Email Address"}),I.jsx(ir,{control:"radio",type:"radio",name:"queryType",label:"Query Type",options:i}),I.jsx(ir,{control:"input",type:"textarea",name:"message",label:"Message"}),I.jsx(ir,{control:"checkbox",type:"checkbox",name:"consent",label:"I consent to being contacted by the team"}),I.jsx(AE,{type:"submit",disabled:!l||o,children:I.jsx(vn,{$bold:!0,$size:"medium",$white:!0,children:"Submit"})})]})})},DE=jt.div`
+`,NE={firstName:"",lastName:"",email:"",queryType:"",message:"",consent:!1},IE=I0({firstName:or().required("This field is required"),lastName:or().required("This field is required"),email:or().email("Please enter a valid email address").required("This field is required"),queryType:or().required("Please select a query type"),message:or().required("This field is required"),consent:P0().oneOf([!0],"To submit this form, please consent to being contacted")}),RE=[{key:"General Enquiry",val:"general"},{key:"Support Request",val:"support"}],zE=({handleModal:e})=>{const t=C.useCallback((o,l)=>{console.log(o),e(u=>!u),l.setSubmitting(!1)},[e]),n=C.useMemo(()=>NE,[]),r=C.useMemo(()=>IE,[]),i=C.useMemo(()=>RE,[]);return I.jsx(d2,{initialValues:n,validationSchema:r,onSubmit:t,children:({isSubmitting:o,isValid:l})=>I.jsxs(E0,{className:"form",children:[I.jsxs(lm,{$styleFor:"input",children:[I.jsx(ir,{control:"input",type:"text",name:"firstName",label:"First Name"}),I.jsx(ir,{control:"input",type:"text",name:"lastName",label:"Last Name"})]}),I.jsx(ir,{control:"input",type:"email",name:"email",label:"Email Address"}),I.jsx(ir,{control:"radio",type:"radio",name:"queryType",label:"Query Type",options:i}),I.jsx(ir,{control:"input",type:"textarea",name:"message",label:"Message"}),I.jsx(ir,{control:"checkbox",type:"checkbox",name:"consent",label:"I consent to being contacted by the team"}),I.jsx(vn,{$bold:!0,$size:"medium",$white:!0,children:I.jsx(AE,{type:"submit",disabled:!l||o,children:"Submit"})})]})})},DE=jt.div`
   max-width: 763px;
 
   padding: 4rem;
