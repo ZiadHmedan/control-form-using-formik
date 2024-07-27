@@ -20,7 +20,7 @@ const Radio: FC<MyProps> = ({ name, label, options, type }) => {
         {label} <span style={{ color: theme.colors.darkGreen }}>*</span>
       </Typography>
       <GridOneRow $styleFor={type}>
-        <Field name={name}>
+        <Field name={name} id={name} >
           {({ field }: FieldProps<string>) => (
             <>
               {options?.map(({ key, val }) => (

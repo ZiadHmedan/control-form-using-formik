@@ -105,11 +105,11 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ handleModal }) => {
             name="consent"
             label="I consent to being contacted by the team"
           />
-          <Button type="submit" disabled={!isValid || isSubmitting}>
-            <Typography $bold $size="medium" $white>
+          <Typography $bold $size="medium" $white>
+            <Button type="submit" disabled={!isValid || isSubmitting}>
               Submit
-            </Typography>
-          </Button>
+            </Button>
+          </Typography>
         </Form>
       )}
     </Formik>

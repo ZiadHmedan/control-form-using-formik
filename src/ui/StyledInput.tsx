@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import theme from "../theme";
 interface prop {
-  type: string;
+  id: string;
   $unValid: boolean;
 }
 export const StyledInput = styled.div<prop>`
@@ -12,7 +12,7 @@ margin-top: 8px;
   font-size: ${theme.typography.sizes.medium};
   color: ${({ $unValid }) =>
     $unValid ? theme.colors.error : theme.colors.darkGrey};
-  padding: ${({ type }) => (type === "textarea" ? "12px" : "0")} 24px;
+  padding: ${({ id }) => (id === "message" ? "12px" : "0")} 24px;
 
   border-radius: 2px;
   width: 100%;

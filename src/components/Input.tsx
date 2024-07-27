@@ -7,7 +7,7 @@ import theme from "../theme";
 interface InputProps {
   label: string;
   name: string;
-  type: string;
+  type?: string;
 }
 
 const Input: React.FC<InputProps> = ({ label, name, type }) => {
@@ -25,8 +25,8 @@ const Input: React.FC<InputProps> = ({ label, name, type }) => {
           return (
             <StyledInput
               as={type === "textarea" ? "textarea" : "input"}
-              id={name} 
-              type={type}
+              id={name}
+              {...(type !== "textarea" && { type })}
               {...field}
               $unValid={err}
             />
