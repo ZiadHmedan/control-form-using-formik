@@ -44,7 +44,7 @@ const options: { key: string; val: string }[] = [
   { key: "General Enquiry", val: "general" },
   { key: "Support Request", val: "support" },
 ];
-const RegisterForm: React.FC<RegisterFormProps> = ({ handleModal }) => {
+const RegisterForm = ({ handleModal }:RegisterFormProps) => {
   const onSubmit = useCallback(
     (values: FormValues, formikHelpers: FormikHelpers<FormValues>) => {
       console.log(values);

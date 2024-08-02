@@ -9,13 +9,13 @@ interface InputProps {
   name: string;
   type: string;
 }
-const CheckBox: React.FC<InputProps> = ({ label, name, type }) => {
+const CheckBox = ({ label, name, type }: InputProps) => {
   return (
     <div>
       <Field id={name} name={name}>
         {({ field }: FieldProps<string>) => (
           <StyledCheckBox>
-            <input id={name}  type={type} {...field} />
+            <input id={name} type={type} {...field} />
             <Typography as="label" htmlFor={name}>
               {label} <span style={{ color: theme.colors.darkGreen }}>*</span>
             </Typography>

@@ -10,7 +10,7 @@ interface InputProps {
   type?: string;
 }
 
-const Input: React.FC<InputProps> = ({ label, name, type }) => {
+const Input = ({ label, name, type }: InputProps) => {
   return (
     <div>
       <Typography as="label" htmlFor={name}>

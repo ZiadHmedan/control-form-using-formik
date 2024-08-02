@@ -4,7 +4,7 @@ interface TextErrorProps {
   children: string;
 }
 
-const TextError: React.FC<TextErrorProps> = ({ children }) => {
+const TextError = ({ children }:TextErrorProps) => {
   return <StyledTextError>{children}</StyledTextError>;
 };
 

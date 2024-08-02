@@ -7,14 +7,15 @@ interface MyComponentProps {
   name: string;
   label: string;
   options?: { key: string; val: string }[];
-
 }
-const FiledControl: React.FC<MyComponentProps> = ({ control,...rest }) => {
+const FiledControl = ({ control, ...rest }: MyComponentProps) => {
   switch (control) {
     case "input":
       return <Input {...rest} />;
-    case "radio": return <Radio {...rest}/>
-    case "checkbox": return<CheckBox {...rest}/>;
+    case "radio":
+      return <Radio {...rest} />;
+    case "checkbox":
+      return <CheckBox {...rest} />;
     default:
       return null;
   }
